@@ -21,11 +21,15 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.appssquaretaskmovieapp.R
 import com.example.appssquaretaskmovieapp.presentation.components.CommonButton
 
 @Composable
-fun SplashScreen() {
+fun SplashScreen(
+    navController: NavController
+) {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -75,7 +79,9 @@ fun SplashScreen() {
             )
             Spacer(modifier = Modifier.height(16.dp))
 
-            CommonButton(text = "Explore") {}
+            CommonButton(text = "Explore") {
+                navController.navigate("LOGIN")
+            }
         }
     }
 }
@@ -83,5 +89,5 @@ fun SplashScreen() {
 @Preview(showBackground = true)
 @Composable
 private fun SplashScreenPreview() {
-    SplashScreen()
+    SplashScreen(rememberNavController())
 }

@@ -13,7 +13,7 @@ import com.example.appssquaretaskmovieapp.presentation.ui.theme.TFColor
 import com.example.appssquaretaskmovieapp.presentation.ui.theme.TextColor_Blue
 
 @Composable
-fun AnnotatedStringWithTwoText(text1 : String, text2 : String) {
+fun AnnotatedStringWithTwoText(text1 : String, text2 : String , onClick:()->Unit) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Center
@@ -28,7 +28,9 @@ fun AnnotatedStringWithTwoText(text1 : String, text2 : String) {
             fontSize = 16.sp,
             textDecoration = TextDecoration.Underline,
             modifier = Modifier
-                .clickable {}
+                .clickable {
+                    onClick()
+                }
         )
     }
 

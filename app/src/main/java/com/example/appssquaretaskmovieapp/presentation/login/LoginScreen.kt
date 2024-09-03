@@ -16,6 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.appssquaretaskmovieapp.R
 import com.example.appssquaretaskmovieapp.presentation.components.AnnotatedStringWithTwoText
 import com.example.appssquaretaskmovieapp.presentation.components.CommonButton
@@ -25,7 +27,9 @@ import com.example.appssquaretaskmovieapp.presentation.components.UpTextSection
 import com.example.appssquaretaskmovieapp.presentation.ui.theme.ScreenBackground
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(
+    navController: NavController
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -42,9 +46,13 @@ fun LoginScreen() {
         Spacer(modifier = Modifier.height(18.dp))
         PasswordTextFieldWithText(text = "Password")
         Spacer(modifier = Modifier.height(32.dp))
-        CommonButton(text = " Login") {}
+        CommonButton(text = " Login") {
+            navController.navigate("HOME")
+        }
         Spacer(modifier = Modifier.height(38.dp))
-        AnnotatedStringWithTwoText("Don’t have an account yet? ", "Sign Up")
+        AnnotatedStringWithTwoText("Don’t have an account yet? ", "Sign Up"){
+            navController.navigate("SIGN_UP")
+        }
 
 
     }
@@ -70,5 +78,5 @@ private fun LoginTopAbbBar() {
 @Preview(showBackground = true)
 @Composable
 private fun LoginScreenPreview() {
-    LoginScreen()
+    LoginScreen(rememberNavController())
 }
