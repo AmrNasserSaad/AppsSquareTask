@@ -19,11 +19,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.appssquaretaskmovieapp.R
-import com.example.appssquaretaskmovieapp.presentation.components.AnnotatedStringWithTwoText
-import com.example.appssquaretaskmovieapp.presentation.components.CommonButton
-import com.example.appssquaretaskmovieapp.presentation.components.PasswordTextFieldWithText
-import com.example.appssquaretaskmovieapp.presentation.components.TextFieldWithText
-import com.example.appssquaretaskmovieapp.presentation.components.UpTextSection
+import com.example.appssquaretaskmovieapp.presentation.common.AnnotatedStringWithTwoText
+import com.example.appssquaretaskmovieapp.presentation.common.CommonButton
+import com.example.appssquaretaskmovieapp.presentation.common.PasswordTextFieldWithText
+import com.example.appssquaretaskmovieapp.presentation.common.TextFieldWithText
+import com.example.appssquaretaskmovieapp.presentation.common.UpTextSection
 import com.example.appssquaretaskmovieapp.presentation.ui.theme.ScreenBackground
 
 @Composable
@@ -34,7 +34,7 @@ fun LoginScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(color = ScreenBackground)
-            .padding(horizontal = 24.dp, vertical = 36.dp),
+            .padding(horizontal = 24.dp, vertical = 46.dp),
         verticalArrangement = Arrangement.Top
     ) {
 

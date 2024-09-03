@@ -1,10 +1,10 @@
 package com.example.appssquaretaskmovieapp.navigations
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.appssquaretaskmovieapp.presentation.home.cite_detail.CiteDetailsScreen
 import com.example.appssquaretaskmovieapp.presentation.home.popular_cities.HomeScreen
 import com.example.appssquaretaskmovieapp.presentation.login.LoginScreen
 import com.example.appssquaretaskmovieapp.presentation.sign_up.SignUpScreen
@@ -28,6 +28,9 @@ fun AppNavigation() {
         }
         composable("HOME") {
             HomeScreen(navController = navController)
+        }
+        composable("CiteDetailsScreen") {
+            CiteDetailsScreen(navController = navController)
         }
     }
 

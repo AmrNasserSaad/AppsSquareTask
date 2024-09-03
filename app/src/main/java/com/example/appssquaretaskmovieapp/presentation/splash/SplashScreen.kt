@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.appssquaretaskmovieapp.R
-import com.example.appssquaretaskmovieapp.presentation.components.CommonButton
+import com.example.appssquaretaskmovieapp.presentation.common.CommonButton
 
 @Composable
 fun SplashScreen(
@@ -44,7 +44,7 @@ fun SplashScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 56.dp),
+                .padding(top = 64.dp),
             contentAlignment = Alignment.TopCenter
         ) {
             Text(
@@ -72,10 +72,10 @@ fun SplashScreen(
             )
             Spacer(modifier = Modifier.height(12.dp))
             Text(
-                text = "Luxurious \nVacation",
+                text = "Luxurious \n \nVacation",
                 fontFamily = FontFamily(Font(R.font.inter_medium)),
                 color = Color.White,
-                fontSize = 32.sp
+                fontSize = 32.sp,
             )
             Spacer(modifier = Modifier.height(16.dp))
 
