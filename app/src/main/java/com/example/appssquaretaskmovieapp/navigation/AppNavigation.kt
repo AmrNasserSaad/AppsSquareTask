@@ -1,4 +1,4 @@
-package com.example.appssquaretaskmovieapp.navigations
+package com.example.appssquaretaskmovieapp.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost

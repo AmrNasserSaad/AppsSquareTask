@@ -1,5 +1,6 @@
 package com.example.appssquaretaskmovieapp.presentation.common
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -30,44 +31,51 @@ import com.example.appssquaretaskmovieapp.R
 import com.example.appssquaretaskmovieapp.presentation.ui.theme.TFColor
 
 @Composable
-fun PasswordTextFieldWithText(text: String) {
-    var value by remember { mutableStateOf("") }
-    var passwordVisible by remember { mutableStateOf(false) }
+fun PasswordTextFieldWithText(
+    label: String,
+    password: String,
+    onPasswordChange: (String) -> Unit,
+    passwordVisible: Boolean,
+    onPasswordVisibilityChange: () -> Unit
+) {
+    Column {
+        Text(
+            text = label,
+            color = Black,
+            fontSize = 16.sp,
+            fontFamily = FontFamily(Font(R.font.inter_medium))
+        )
 
-    Text(
-        text = text,
-        color = Black,
-        fontSize = 16.sp,
-        fontFamily = FontFamily(Font(R.font.inter_medium))
-    )
+        Spacer(modifier = Modifier.height(2.dp))
 
-    Spacer(modifier = Modifier.height(2.dp))
-
-    OutlinedTextField(
-        value = value,
-        onValueChange = { value = it },
-        shape = RoundedCornerShape(12.dp),
-        maxLines = 1,
-        colors = OutlinedTextFieldDefaults.colors(
-            focusedBorderColor = White,
-            unfocusedBorderColor = White,
-            unfocusedContainerColor = White,
-            focusedContainerColor = White,
-        ),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Password
-        ),
-        visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
-        label = { Text(text = text, color = TFColor) },
-        modifier = Modifier.fillMaxWidth(),
-        trailingIcon = {
-            IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                Icon(
-                    painter =  painterResource(id = R.drawable.ic_show_password),
-                    contentDescription = null,
-                    tint = TFColor
-                )
+        OutlinedTextField(
+            value = password,
+            onValueChange = onPasswordChange,
+            shape = RoundedCornerShape(12.dp),
+            maxLines = 1,
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = White,
+                unfocusedBorderColor = White,
+                unfocusedContainerColor = White,
+                focusedContainerColor = White,
+            ),
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Password
+            ),
+            visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+            label = { Text(text = label, color = TFColor) },
+            modifier = Modifier.fillMaxWidth(),
+            trailingIcon = {
+                IconButton(onClick = onPasswordVisibilityChange) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_show_password),
+                        contentDescription = null,
+                        tint = TFColor
+                    )
+                }
             }
-        }
-    )
+        )
+    }
 }
+
+

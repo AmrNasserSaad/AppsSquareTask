@@ -1,5 +1,6 @@
 package com.example.appssquaretaskmovieapp.presentation.common
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -23,29 +24,32 @@ import com.example.appssquaretaskmovieapp.R
 import com.example.appssquaretaskmovieapp.presentation.ui.theme.TFColor
 
 @Composable
- fun TextFieldWithText(text :String) {
-    var value by remember {
-        mutableStateOf("")
+fun TextFieldWithText(
+    label: String,
+    value: String,
+    onValueChange: (String) -> Unit
+) {
+    Column {
+        Text(
+            text = label,
+            color = Black,
+            fontSize = 16.sp,
+            fontFamily = FontFamily(Font(R.font.inter_medium))
+        )
+        Spacer(modifier = Modifier.height(2.dp))
+        OutlinedTextField(
+            value = value,
+            onValueChange = onValueChange,
+            shape = RoundedCornerShape(12.dp),
+            maxLines = 1,
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = White,
+                unfocusedBorderColor = White,
+                unfocusedContainerColor = White,
+                focusedContainerColor = White,
+            ),
+            label = { Text(text = label, color = TFColor) },
+            modifier = Modifier.fillMaxWidth(),
+        )
     }
-    Text(
-        text = text,
-        color = Black,
-        fontSize = 16.sp,
-        fontFamily = FontFamily(Font(R.font.inter_medium))
-    )
-    Spacer(modifier = Modifier.height(2.dp))
-    OutlinedTextField(
-        value = value,
-        onValueChange = { value = it },
-        shape = RoundedCornerShape(12.dp),
-        maxLines = 1,
-        colors = OutlinedTextFieldDefaults.colors(
-            focusedBorderColor = White,
-            unfocusedBorderColor = White,
-            unfocusedContainerColor = White,
-            focusedContainerColor = White,
-        ),
-        label = { Text(text = text, color = TFColor) },
-        modifier = Modifier.fillMaxWidth(),
-    )
 }

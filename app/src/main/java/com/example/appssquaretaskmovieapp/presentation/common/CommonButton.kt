@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.example.appssquaretaskmovieapp.presentation.ui.theme.ButtonColor_Blue
 
 @Composable
-fun CommonButton(text : String , onClick : ()-> Unit) {
+fun CommonButton(text: String, onClick: () -> Unit) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
@@ -30,8 +30,8 @@ fun CommonButton(text : String , onClick : ()-> Unit) {
     }
 }
 
-@Preview(showBackground = true , showSystemUi = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun CommonButtonPreview() {
-    CommonButton(text = "Explore" ) {}
+    CommonButton(text = "Explore") {}
 }
