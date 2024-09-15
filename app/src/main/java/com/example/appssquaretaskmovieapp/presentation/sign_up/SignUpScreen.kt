@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -64,7 +66,7 @@ fun SignUpScreen(
             }
         }.onFailure { error ->
             // Show error message
-            Toast.makeText(context, "Error: ${error.message} : $result  ", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "${error.message} : $result  ", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -72,7 +74,8 @@ fun SignUpScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(color = ScreenBackground)
-            .padding(horizontal = 24.dp, vertical = 42.dp),
+            .padding(horizontal = 24.dp, vertical = 42.dp)
+            .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.Top
     ) {
         SignUpTopAppBarSection(navController)
@@ -117,6 +120,7 @@ fun SignUpScreen(
             // Trigger sign-up when the button is clicked
             viewModel.signUp(
                 SignUpRequest(
+                    name = "amr",
                     phone = phoneNumber,
                     city = city,
                     email = email,

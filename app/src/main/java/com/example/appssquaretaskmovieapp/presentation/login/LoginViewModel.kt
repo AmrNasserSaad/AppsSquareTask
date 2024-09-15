@@ -31,8 +31,8 @@ class LoginViewModel @Inject constructor(
                     // Handle success
                     _loginResult.value = Result.success(response.body()!!)
                 } else {
-                    // Handle API error
-                    _loginResult.value = Result.failure(Exception("Login failed: ${response.message()}"))
+                    val errorMessage = response.errorBody()?.string() ?: "Unknown error"
+                    _loginResult.value = Result.failure(Exception("API error: $errorMessage"))
                 }
             } catch (e: HttpException) {
                 // Handle HTTP exceptions

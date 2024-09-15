@@ -31,7 +31,11 @@ class SignUpViewModel @Inject constructor(
                 if (response.isSuccessful && response.body() != null) {
                     Result.success(response.body()!!)
                 } else {
-                    Result.failure(Exception("Sign-up failed: ${response.message()}"))
+                    // Extract the error message from the error body if available
+                    val errorMessage = response.errorBody()?.string() ?: "Unknown error"
+
+                    // Handle the error as a failure with a detailed message
+                    Result.failure(Exception("API error: $errorMessage"))
                 }
             } catch (e: HttpException) {
                 Result.failure(Exception("HTTP error: ${e.message}"))

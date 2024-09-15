@@ -4,6 +4,8 @@ import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,7 +44,7 @@ fun LoginScreen(
             }
         }.onFailure { error ->
             // Show error message
-            Toast.makeText(context, "Error: ${error.message} $result", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "${error.message} $result", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -50,7 +52,8 @@ fun LoginScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(color = ScreenBackground)
-            .padding(horizontal = 24.dp, vertical = 46.dp),
+            .padding(horizontal = 24.dp, vertical = 46.dp)
+            .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.Top
     ) {
         LoginTopAppBar()
