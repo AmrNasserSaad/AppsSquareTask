@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.appssquaretaskmovieapp.navigation.AppNavigation
+import com.example.appssquaretaskmovieapp.presentation.home.restaurant.RestaurantList
 import com.example.appssquaretaskmovieapp.presentation.ui.theme.AppsSquareTaskMovieAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,7 +16,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AppsSquareTaskMovieAppTheme {
-                AppNavigation()
+                //AppNavigation()
+                RestaurantList()
             }
         }
     }

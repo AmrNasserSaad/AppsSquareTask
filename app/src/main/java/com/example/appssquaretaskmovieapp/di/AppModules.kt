@@ -1,6 +1,7 @@
 package com.example.appssquaretaskmovieapp.di
 
 import com.example.appssquaretaskmovieapp.data.remote.ApiService
+import com.example.appssquaretaskmovieapp.data.repository.RestaurantRepository
 import com.example.appssquaretaskmovieapp.data.repository.UserRepository
 import dagger.Module
 import dagger.Provides
@@ -29,6 +30,8 @@ object NetworkModule {
     fun provideApiService(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
     }
+
+
 }
 
 @Module
@@ -38,5 +41,10 @@ object RepositoryModule {
     @Provides
     fun provideUserRepository(apiService: ApiService): UserRepository {
         return UserRepository(apiService)
+    }
+
+    @Provides
+    fun provideRestaurantRepository(apiService: ApiService): RestaurantRepository {
+        return RestaurantRepository(apiService)
     }
 }
